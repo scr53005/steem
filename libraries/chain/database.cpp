@@ -1920,6 +1920,8 @@ void database::process_savings_withdraws()
   }
 }
 
+#ifdef STEEM_ENABLE_SMT
+
 void database::process_smt_objects()
 {
   const auto& idx = get_index< smt_token_index >().indices().get< by_interval >();
@@ -1988,6 +1990,8 @@ void database::process_smt_objects()
       ++itr;      
    }
 }
+
+#endif
 
 asset database::get_liquidity_reward()const
 {
