@@ -67,6 +67,7 @@ enum object_type
 #ifdef STEEM_ENABLE_SMT
    // SMT objects
    smt_token_object_type,
+   smt_event_token_object_type,
    account_regular_balance_object_type,
    account_rewards_balance_object_type
 #endif
@@ -104,6 +105,7 @@ class vesting_delegation_expiration_object;
 
 #ifdef STEEM_ENABLE_SMT
 class smt_token_object;
+class smt_event_token_object;
 template < enum object_type ObjectType > class account_balance_object;
 typedef account_balance_object< account_regular_balance_object_type > account_regular_balance_object;
 typedef account_balance_object< account_rewards_balance_object_type > account_rewards_balance_object;
@@ -141,6 +143,7 @@ typedef oid< vesting_delegation_expiration_object   > vesting_delegation_expirat
 
 #ifdef STEEM_ENABLE_SMT
 typedef oid< smt_token_object                       > smt_token_id_type;
+typedef oid< smt_event_token_object                 > smt_event_token_id_type;
 typedef oid< account_regular_balance_object         > account_regular_balance_id_type;
 typedef oid< account_rewards_balance_object         > account_rewards_balance_id_type;
 #endif
@@ -226,6 +229,7 @@ FC_REFLECT_ENUM( steem::chain::object_type,
 
 #ifdef STEEM_ENABLE_SMT
                  (smt_token_object_type)
+                 (smt_event_token_object_type)
                  (account_regular_balance_object_type)
                  (account_rewards_balance_object_type)
 #endif
